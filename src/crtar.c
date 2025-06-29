@@ -45,7 +45,7 @@ long get_path_modified_date(struct stat path_stat)
 long get_path_created_date(struct stat path_stat)
 {
 
-    return path_stat.st_ctime;
+    return path_stat.st_birthtime;
 }
 // char *get_path_checksum(mode_t mode_t) {}
 
