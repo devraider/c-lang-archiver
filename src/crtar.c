@@ -36,7 +36,17 @@ int get_path_size(struct stat path_stat)
 {
     return path_stat.st_size;
 }
-// char *get_path_modified_date(mode_t mode_t) {}
+long get_path_modified_date(struct stat path_stat)
+{
+
+    return path_stat.st_mtime;
+}
+
+long get_path_created_date(struct stat path_stat)
+{
+
+    return path_stat.st_ctime;
+}
 // char *get_path_checksum(mode_t mode_t) {}
 
 char *get_path_type(struct stat path_stat)
@@ -63,7 +73,9 @@ int crtar(char *filename, char *path)
     char *path_permission = get_path_permission(path_stat.st_mode);
     int path_uid = get_path_uid(path_stat);
     int path_guid = get_path_guid(path_stat);
-    long path_size = get_path_size(path_stat);
+    int path_size = get_path_size(path_stat);
+    long path_created_date = get_path_created_date(path_stat);
+    long path_modified_date = get_path_modified_date(path_stat);
 
     // TODO: To implement dir logic
     if (strcmp(path_type, "directory") == 0)
@@ -78,7 +90,9 @@ int crtar(char *filename, char *path)
     printf(" Path permissions: %s \n", path_permission);
     printf(" Path User ID: %d \n", path_uid);
     printf(" Path Group ID: %d \n", path_guid);
-    printf(" Path Size: %ld \n", path_size);
+    printf(" Path Size: %d \n", path_size);
+    printf(" Path Created Date: %ld \n", path_created_date);
+    printf(" Path Modified Date: %ld \n", path_modified_date);
 
     return 0;
 }
