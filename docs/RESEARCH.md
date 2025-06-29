@@ -18,3 +18,14 @@ It's a GNU tool that creates an archive of files and directories, preserving the
 - Support basic operations like listing contents, extracting files, and creating archives.
 
 ## 2. Implementation
+
+- Read read file based on the path
+- Identify:
+  - File name
+  - File mode / permissions
+  - User ID (UID)
+  - Group ID (GID)
+  - File size
+  - Last modified time
+  - Checksum (Checksum of header)
+  - File type (regular file, directory, symlink, etc.)
